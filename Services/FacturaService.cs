@@ -4,8 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using _411963_MAINARDI_GONZALO_1W3.Data;
-using _411963_MAINARDI_GONZALO_1W3.Data.Implementations;
-using _411963_MAINARDI_GONZALO_1W3.Data.Interfaces;
 using _411963_MAINARDI_GONZALO_1W3.Domain;
 
 namespace _411963_MAINARDI_GONZALO_1W3.Services
