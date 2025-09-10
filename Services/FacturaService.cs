@@ -10,32 +10,22 @@ namespace _411963_MAINARDI_GONZALO_1W3.Services
 {
     public class FacturaService
     {
-        private readonly IUnitOfWork _uow;
+        private readonly UnitOfWork _unitOfWork;
 
-        public FacturaService(IUnitOfWork uow)
+        public FacturaService(UnitOfWork unitOfWork)
         {
-            _uow = uow;
+            _unitOfWork = unitOfWork;
         }
 
-        public int RegistrarFactura(Factura factura)
+        public void CrearFactura(Factura factura)
         {
-            try
-            {
-                // Lógica de negocio previa (validaciones) aquí...
-                int nro = _uow.Facturas.Add(factura);
-                _uow.Commit();
-                return nro;
-            }
-            catch
-            {
-                _uow.Rollback();
-                throw;
-            }
+            _unitOfWork.Facturas.Add(factura);
+            _unitOfWork.Save();
         }
 
-        public Factura ObtenerFactura(int nro)
+        public Factura ObtenerFactura(int nroFactura)
         {
-            return _uow.Facturas.GetById(nro);
+            return _unitOfWork.Facturas.GetById(nroFactura);
         }
     }
 }

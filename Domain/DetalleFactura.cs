@@ -8,7 +8,7 @@ namespace _411963_MAINARDI_GONZALO_1W3.Domain
 {
     public class DetalleFactura
     {
-        public int IdDetalle { get; set; }
+        public int Id { get; set; }
         public Articulo Articulo { get; set; }
         public int Cantidad { get; set; }
     }

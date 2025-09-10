@@ -9,9 +9,10 @@ namespace _411963_MAINARDI_GONZALO_1W3.Data
 {
     public interface IFacturaRepository
     {
-        int Add(Factura factura); // devuelve NroFactura insertado
+        void Add(Factura factura);
+        void Update(Factura factura);
+        void Delete(Factura factura);
         Factura GetById(int nroFactura);
         IEnumerable<Factura> GetAll();
-        void Delete(int nroFactura);
     }
 }
