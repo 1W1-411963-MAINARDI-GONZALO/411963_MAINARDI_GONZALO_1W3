@@ -3,26 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Data.SqlClient;
 
 namespace _411963_MAINARDI_GONZALO_1W3.Data
 {
-    public class UnitOfWork : IUnitOfWork, IDisposable
+    public class UnitOfWork : IDisposable
     {
-        private readonly string _connectionString;
-        public IFacturaRepository Facturas { get; }
+        public IFacturaRepository Facturas { get; private set; }
 
         public UnitOfWork(string connectionString)
         {
-            _connectionString = connectionString;
-            Facturas = new FacturaRepository(_connectionString);
+            Facturas = new IFacturaRepository (connectionString);
         }
 
-        public void Save()
+        public void Dispose()
         {
-            // Confirmar transacciones si se implementan
+            
         }
-
-        public void Dispose() { }
     }
 }

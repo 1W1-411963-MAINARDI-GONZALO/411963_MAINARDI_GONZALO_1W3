@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using _411963_MAINARDI_GONZALO_1W3.Data;
+using _411963_MAINARDI_GONZALO_1W3.Data.Implementations;
+using _411963_MAINARDI_GONZALO_1W3.Data.Interfaces;
 using _411963_MAINARDI_GONZALO_1W3.Domain;
 
 namespace _411963_MAINARDI_GONZALO_1W3.Services
@@ -17,15 +19,12 @@ namespace _411963_MAINARDI_GONZALO_1W3.Services
             _unitOfWork = unitOfWork;
         }
 
-        public void CrearFactura(Factura factura)
+        public int CrearFactura(Factura factura)
         {
-            _unitOfWork.Facturas.Add(factura);
-            _unitOfWork.Save();
-        }
+            if (factura.Detalles.Count == 0)
+                throw new Exception("Debe tener al menos un detalle.");
 
-        public Factura ObtenerFactura(int nroFactura)
-        {
-            return _unitOfWork.Facturas.GetById(nroFactura);
+            return _unitOfWork.Facturas.InsertarFactura(factura);
         }
     }
 }

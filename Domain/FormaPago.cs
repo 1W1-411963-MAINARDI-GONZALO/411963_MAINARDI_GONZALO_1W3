@@ -8,6 +8,7 @@ namespace _411963_MAINARDI_GONZALO_1W3.Domain
 {
     public class FormaPago
     {
-        public int Id { get; set; }
+        public int IdFormaPago { get; set; }
         public string Nombre { get; set; }
     }
+}
